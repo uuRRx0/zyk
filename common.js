@@ -1,5 +1,6 @@
 function getBdvId(remove){
-  let bdv_id = window.location.search.split('&').find(item => item.includes('bdv_id=')).split('bdv_id=').pop()
+  const query = window.location.search.split('&').find(item => item.includes('bdv_id=')) || ''
+  let bdv_id = query.split('bdv_id=').pop()
   const result = /\d+/.test(bdv_id) ? saveBdvId(bdv_id) : hasBdvId()
   console.log('zyk', result)
   remove === true && removeBdvId()
